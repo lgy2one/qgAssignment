@@ -1,0 +1,6 @@
+#ifndef CHOOSEELEMTYPE_H_INCLUDED
+#define CHOOSEELEMTYPE_H_INCLUDED
+
+void chooseElemtype(AQueue *Q);
+
+#endif // CHOOSEELEMTYPE_H_INCLUDED
