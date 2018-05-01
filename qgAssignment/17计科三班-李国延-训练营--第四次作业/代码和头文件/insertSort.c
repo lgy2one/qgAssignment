@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertSort(ElemType array[],int n)
+void insertSort(ElemType array[],int n)            //≤Â»Î≈≈–Ú
 {
     int i,j;
 

@@ -2,7 +2,18 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void QSortRecursion(ElemType array[], int n, int begin, int end)
+void Swap(ElemType *a, ElemType *b)         //交换函数，将两个数交换
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+
+    return ;
+}
+
+void QSortRecursion(ElemType array[], int n, int begin, int end)    //递归快排
 {
     int i, j;
 
@@ -31,29 +42,16 @@ void QSortRecursion(ElemType array[], int n, int begin, int end)
 
         Swap(&array[begin], &array[i]);         // 交换array[i]与array[begin]
 
-        QSortRecursion(array, n, begin, i);
+        QSortRecursion(array, n, begin, i);       //递归调用直至全部分配完毕
         QSortRecursion(array, n, j, end);
     }
 
 }
 
 
-
-void Swap(ElemType *a, ElemType *b)
-{
-    int temp;
-
-    temp = *a;
-    *a = *b;
-    *b = temp;
-
-    return ;
-}
-
-
-int sl[MAXSIZE];
-int sr[MAXSIZE];
-int sp = 0;
+int sl[100];               //定义两个栈，分别放索引指向的最低点和最高点
+int sr[100];
+int sp = 0;                //栈顶
 
 //入栈
 void PUSH(int A, int B)
@@ -71,16 +69,16 @@ void POP(int* pl, int* pr)
     *pr = sr[sp];
 }
 
-void QSort(int* a,int l,int r)
+void QSort(int* a,int l,int r)                 //迭代快排
 {
     int i,j,p,t;
 
     PUSH(l,r);
 
-    while(sp){
+    while(sp){                       //栈空的时候结束循环
         POP(&l,&r);
         i = l;
-        j = r;
+        j = r;                      //此处为第一次分配
         p = a[(i+j)/2];
         while(i <= j) {
             while(a[i] < p)
@@ -96,7 +94,7 @@ void QSort(int* a,int l,int r)
             }
         }
 
-        if(l<j)
+        if(l<j)                    //这里是迭代分配，作用相当于递归
             PUSH(l,j);
         if(i<r)
             PUSH(i,r);

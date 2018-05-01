@@ -3,11 +3,12 @@
 #include "sort.h"
 #include <time.h>
 
-void testTime2(int choose)
+void testTime2(int choose)                //输出大量小数组的排序测试时间
 {
     clock_t start,finish;
     double totaltime;
-    int i = 6;
+
+     int i = 6;
      int index = 18;
 
     int dataSize = 100;
@@ -19,7 +20,7 @@ void testTime2(int choose)
 
         int operate;
 
-        if(choose)
+        if(choose)               //用i的自减实现自动
         {
             operate = i--;
         }
@@ -85,9 +86,7 @@ void testTime2(int choose)
 
           result[index++] = totaltime;
 
-          printf("\n程序运行的时间为: %.3f 秒",totaltime);
-
+          printf("\n程序运行的时间为: %.3f 秒\n",totaltime);
     }
-
 
 }

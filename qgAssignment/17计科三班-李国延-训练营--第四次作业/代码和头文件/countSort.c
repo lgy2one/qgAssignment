@@ -13,7 +13,7 @@ int GetNumInPos(int num,int pos)
     return (num / temp) % 10;
 }
 
-void RadixCountSort(ElemType* dataArray, int n)
+void RadixCountSort(ElemType* dataArray, int n)               //基数计数排序
 {
     int *radixArrays[10];    //分别为0~9的序列空间
     for (int i = 0; i < 10; i++)
@@ -22,7 +22,7 @@ void RadixCountSort(ElemType* dataArray, int n)
         radixArrays[i][0] = 0;    //index为0处记录这组数据的个数
     }
 
-    for (int pos = 1; pos <= 6; pos++)    //从个位开始到第6位
+    for (int pos = 1; pos <= 7; pos++)    //从个位开始到第7位
     {
         for (int i = 0; i < n; i++)    //分配过程
         {
@@ -41,7 +41,7 @@ void RadixCountSort(ElemType* dataArray, int n)
 
 }
 
-void countSort(int array[], int size)
+void countSort(int array[], int size)          //计数排序
 {
 
     int *countArray = (int *) calloc(30000, sizeof(int));
