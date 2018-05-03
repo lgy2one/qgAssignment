@@ -58,10 +58,14 @@ void returnBook(ptrTNode Q,ptrLNode P)
     char ID[30];
     scanf("%s",ID);
 
+    printf("\n请输入你要归还的书名：");
+    char bookName[30];
+    scanf("%s",bookName);
+
     ptrLNode q = P->rear;
     while(q->prev != NULL)
     {
-        if(!strcmp(format(q->ID),format(ID)))
+        if(!strcmp(format(q->ID),format(ID)) && !strcmp(format(q->bookName),format(bookName)))
         {
             if(q == P->rear)
             {
@@ -141,4 +145,5 @@ void appoint(ptrTNode Q,ptrLNode P)
         p = p->prev;
     }
 
+      printf("\n该书并不在书库中！预约失败！\n");
 }

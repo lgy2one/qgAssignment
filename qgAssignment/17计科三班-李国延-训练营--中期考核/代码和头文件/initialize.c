@@ -43,7 +43,6 @@ void create2(ptrLNode P)                      //创建记录借阅者信息的链表
 
       P->rear->next = NULL;
       P->rear->prev = NULL;
-
 }
 
 
